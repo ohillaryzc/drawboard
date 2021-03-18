@@ -12,7 +12,14 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, defineEmit, defineProps } from 'vue';
+  const props = defineProps({
+    index: Number,
+    text: String,
+    arr: Array,
+  });
+  console.log(props);
+  const emits = defineEmit(['change']);
   const items = ref([]);
   items.value = [
     {
@@ -32,6 +39,7 @@
   const value = ref('');
   const itemClick = (item) => {
     value.value = item.value;
+    emits('change', item.value);
   };
 </script>
 
@@ -48,7 +56,7 @@
     border: 4px solid #fff;
     background-color: red;
     border-radius: 50%;
-    box-shadow: 0 0 16px 4px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, .1);
     box-sizing: border-box;
     cursor: pointer;
   }
