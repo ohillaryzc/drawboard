@@ -5,7 +5,7 @@
       :key="index"
       :class="['tool-select-item', index === active ? 'active' : '']"
       :title="item.title"
-      @click="changeTool(index)"
+      @click="changeTool(index, item)"
     >
       <img :src="item.icon" alt="" width="30">
     </div>
@@ -28,53 +28,60 @@
 </template>
 
 <script setup>
-  import { ref, defineProps } from 'vue';
-  import pencil from '/src/assets/icon-pencil.png?url';
-  import eraser from '/src/assets/icon-eraser.png?url';
-  import save from '/src/assets/icon-save.png?url';
+import { ref, defineProps, defineEmit } from 'vue';
+import pencil from '/src/assets/icon-pencil.png?url';
+import eraser from '/src/assets/icon-eraser.png?url';
+import save from '/src/assets/icon-save.png?url';
 
-  defineProps({
-    color: String,
-  });
-  const tools = ref([]);
-  tools.value = [
-    {
-      icon: pencil,
-      title: '画笔',
-    },
-    {
-      icon: eraser,
-      title: '橡皮擦',
-    },
-    {
-      icon: save,
-      title: '保存',
-    },
-  ];
-  const active = ref(0);
-  const changeTool = (index) => {
-    active.value = index;
-  };
+defineProps({
+  color: String,
+});
+const emits = defineEmit(['change', 'width-change']);
 
-  const width = ref(1);
-  const len = ref(10);
-  const startMove = (e) => {
-    const startX = e.clientX;
-    const startValue = len.value;
-    document.onmousemove = (e) => {
-      e.preventDefault();
-      const value = e.clientX - startX + startValue;
-      if (value > 10 && value <= 100) {
-        len.value = value;
-        width.value = value / 10;
-      }
-    };
+const tools = ref([]);
+tools.value = [
+  {
+    icon: pencil,
+    title: '画笔',
+    value: 'pencil',
+  },
+  {
+    icon: eraser,
+    title: '橡皮擦',
+    value: 'eraser',
+  },
+  {
+    icon: save,
+    title: '保存',
+    value: 'save',
+  },
+];
+const active = ref(0);
+const changeTool = (index, item) => {
+  active.value = index;
+  emits('change', item.value);
+};
+
+const width = ref(1);
+const len = ref(10);
+const startMove = (e) => {
+  const startX = e.clientX;
+  const startValue = len.value;
+  document.onmousemove = (e) => {
+    e.preventDefault();
+    const value = e.clientX - startX + startValue;
+    if (value > 10 && value <= 100) {
+      len.value = value;
+      width.value = value / 10;
+      emits('width-change', width.value);
+    }
   };
   document.onmouseup = () => {
     if (document.onmousemove) {
       document.onmousemove = null;
     }
   };
+};
 </script>
 
 <style scoped lang="less">

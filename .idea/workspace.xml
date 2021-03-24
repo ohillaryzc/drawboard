@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="741df470-77ff-49d0-aeaf-e853825f5d94" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/main-board.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/color-select.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/color-select.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/tool-select.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tool-select.vue" afterDir="false" />
@@ -26,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/App.vue" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
@@ -62,11 +64,17 @@
       <updated>1615965668002</updated>
       <workItem from="1615965669167" duration="2198000" />
       <workItem from="1615987725366" duration="4745000" />
-      <workItem from="1616029174860" duration="15398000" />
+      <workItem from="1616029174860" duration="26096000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616121849785">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616121849785" />
   </component>
 </project>

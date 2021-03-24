@@ -3,7 +3,7 @@
     <div
       v-for="(item, index) in items"
       :key="index"
-      :style="{ backgroundColor: item.value }"
+      :style="{ backgroundColor: item }"
       class="color-select-item"
       @click="itemClick(item)"
     >
@@ -12,35 +12,16 @@
 </template>
 
 <script setup>
-  import { ref, defineEmit, defineProps } from 'vue';
-  const props = defineProps({
-    index: Number,
-    text: String,
-    arr: Array,
-  });
-  console.log(props);
-  const emits = defineEmit(['change']);
-  const items = ref([]);
-  items.value = [
-    {
-      color: 'red',
-      value: 'red',
-    },
-    {
-      color: 'green',
-      value: 'green',
-    },
-    {
-      color: 'blue',
-      value: 'blue',
-    },
-  ];
+import { ref, defineEmit } from 'vue';
+const emits = defineEmit(['change']);
+const items = ref([]);
+items.value = ['#409EFF', '#67C23A', '#E6A23C', '#F56C6C', '#909399'];
 
-  const value = ref('');
-  const itemClick = (item) => {
-    value.value = item.value;
-    emits('change', item.value);
-  };
+const value = ref('');
+const itemClick = (item) => {
+  value.value = item;
+  emits('change', item);
+};
 </script>
 
 <style scoped>
